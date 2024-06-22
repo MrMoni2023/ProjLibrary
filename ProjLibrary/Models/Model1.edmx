@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Project1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Project1.dbo.BookCategory' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="BookCategory">
+          <Property Name="BookCategoryID" Type="int" />
+          <Property Name="BookCategoryName" Type="varchar" MaxLength="100" />
+          <Property Name="BookCategoryStatus" Type="varchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Project1.dbo.BookCopy' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="BookCopy">
+          <Property Name="BookCallNum" Type="int" />
+          <Property Name="ISBN" Type="int" />
+          <Property Name="LocationID" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Project1.dbo.BookFIne' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="BookFIne">
+          <Property Name="BookFineID" Type="int" />
+          <Property Name="MaxLateDays" Type="int" />
+          <Property Name="BookFineAmount" Type="int" />
+        </EntityType>-->
+        <EntityType Name="BookInfo">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="int" Nullable="false" />
+          <Property Name="BookTitle" Type="varchar" MaxLength="100" />
+          <Property Name="IsBookAvaliable" Type="varchar" MaxLength="10" />
+          <Property Name="BookEdition" Type="varchar" MaxLength="20" />
+          <Property Name="BookAuthor" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Project1.dbo.BookLocation' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="BookLocation">
+          <Property Name="LocationID" Type="int" />
+          <Property Name="ShelfNumber" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Project1.dbo.LibraryDetails' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="LibraryDetails">
+          <Property Name="BookBorrowID" Type="int" />
+          <Property Name="BookCallNum" Type="int" />
+          <Property Name="IssueDate" Type="date" />
+          <Property Name="Returndate" Type="date" />
+          <Property Name="OverDueDay" Type="int" />
+          <Property Name="BookFeeID" Type="int" />
+          <Property Name="BookCategoryID" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Project1.dbo.LibraryMaster' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="LibraryMaster">
+          <Property Name="BookBorrowID" Type="int" />
+          <Property Name="MemberID" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Project1.dbo.MemberInfo' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="MemberInfo">
+          <Property Name="MemberID" Type="int" />
+          <Property Name="MemberTypeID" Type="int" />
+          <Property Name="MemberName" Type="varchar" MaxLength="100" />
+          <Property Name="MemberPhone" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Project1.dbo.MemberType' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="MemberType">
+          <Property Name="MemberTypeID" Type="int" />
+          <Property Name="MemberTypeName" Type="varchar" MaxLength="100" />
+        </EntityType>-->
+        <EntityContainer Name="Project1ModelStoreContainer">
+          <EntitySet Name="BookInfo" EntityType="Self.BookInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Project1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BookInfo">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="Int32" Nullable="false" />
+          <Property Name="BookTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsBookAvaliable" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BookEdition" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BookAuthor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="Project1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BookInfoes" EntityType="Self.BookInfo" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Project1ModelStoreContainer" CdmEntityContainer="Project1Entities">
+          <EntitySetMapping Name="BookInfoes">
+            <EntityTypeMapping TypeName="Project1Model.BookInfo">
+              <MappingFragment StoreEntitySet="BookInfo">
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="BookTitle" ColumnName="BookTitle" />
+                <ScalarProperty Name="IsBookAvaliable" ColumnName="IsBookAvaliable" />
+                <ScalarProperty Name="BookEdition" ColumnName="BookEdition" />
+                <ScalarProperty Name="BookAuthor" ColumnName="BookAuthor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
